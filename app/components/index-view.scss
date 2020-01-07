@@ -1,0 +1,66 @@
+@value marginX: 240px;
+@value gap: 80px;
+@value marginY: 140px;
+@value tileBackground: #90bfe0;
+
+
+.root {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: marginY 1fr gap 1fr marginY;
+  grid-template-columns: marginX 1fr gap 1fr marginX;;
+}
+
+.a {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  background: tileBackground;
+}
+
+.b {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 4;
+  grid-column-end: 5;
+
+  background: tileBackground;
+}
+
+.c {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  background: tileBackground;
+}
+
+.d {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 4;
+  grid-column-end: 5;
+
+  background: tileBackground;
+}
+
+.center {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 4;
+
+  background: red;
+
+  .bigger {
+    width: calc(gap *2);
+    height: calc(gap *2);
+    margin-left: calc(-1 * gap / 2);
+    margin-top: calc(-1 * gap / 2);
+    background: darken(tileBackground, 30);
+  }
+}
