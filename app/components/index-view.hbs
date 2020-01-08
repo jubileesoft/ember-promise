@@ -1,21 +1,44 @@
 <div local-class="root">
   <div local-class="a" {{on "click" this.aClicked}}>
-    ALTERSARMUT
+    <div local-class="stack">
+      <img src="bottles.jpg" />
+    </div>
+    <div local-class="stack">
+      <div local-class="tileTitle">
+        ALTERSARMUT
+      </div>
+    </div>
   </div>
   <div local-class="b" {{on "click" this.bClicked}}>
-    TOPIC 2
+    <div local-class="stack">
+      <div local-class="tileTitle">
+        THEMA 2
+      </div>
+    </div>
   </div>
-  
+
   <div local-class="c" {{on "click" this.cClicked}}>
-    TOPIC 3
+    <div local-class="stack">
+      <div local-class="tileTitle">
+        THEMA 3
+      </div>
+    </div>
   </div>
   <div local-class="d" {{on "click" this.dClicked}}>
-    TOPIC 4
+    <div local-class="stack">
+      <div local-class="tileTitle">
+        THEMA 4
+      </div>
+    </div>
   </div>
 
   <div local-class="center">
     <div local-class="bigger">
-      CENTER
+      <img src="center.png" />
     </div>
+  </div>
+
+  <div local-class="debug">
+    <div>{{app-version versionOnly=true}}</div>
   </div>
 </div>
