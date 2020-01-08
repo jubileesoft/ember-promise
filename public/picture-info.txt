@@ -1,0 +1,3 @@
+center.png = https://www.stockvault.net/photo/199846/cute-animal
+
+bottles.jpg = https://www.stockvault.net/photo/181332/recycled-plastic-bottles
