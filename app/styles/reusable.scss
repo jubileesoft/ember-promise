@@ -1,0 +1,9 @@
+@value marginX: 240px;
+@value gridLayoutGap: 80px;
+@value marginY: 140px;
+
+.grid-layout {
+  display: grid; 
+  grid-template-rows: marginY 1fr gridLayoutGap 1fr marginY;  
+  grid-template-columns: marginX 1fr gridLayoutGap 1fr marginX;
+}

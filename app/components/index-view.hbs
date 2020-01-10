@@ -4,14 +4,14 @@
       <img src="bottles.jpg" />
     </div>
     <div local-class="stack">
-      <div local-class="tileTitle">
+      <div local-class="tile-title">
         ALTERSARMUT
       </div>
     </div>
   </div>
   <div local-class="b" {{on "click" this.bClicked}}>
     <div local-class="stack">
-      <div local-class="tileTitle">
+      <div local-class="tile-title">
         THEMA 2
       </div>
     </div>
@@ -19,14 +19,14 @@
 
   <div local-class="c" {{on "click" this.cClicked}}>
     <div local-class="stack">
-      <div local-class="tileTitle">
+      <div local-class="tile-title">
         THEMA 3
       </div>
     </div>
   </div>
   <div local-class="d" {{on "click" this.dClicked}}>
     <div local-class="stack">
-      <div local-class="tileTitle">
+      <div local-class="tile-title">
         THEMA 4
       </div>
     </div>
@@ -38,7 +38,35 @@
     </div>
   </div>
 
+  <div local-class="icons">
+    <JubileeList @orientation="column" as |list|>
+      <list.item
+        @isSelected={{this.isSettingsOpen}}
+        @isSelectedChanged={{fn (mut this.isSettingsOpen)}} as |isSelected|
+      >
+        <div local-class="icon">
+          <FaIcon @icon="ellipsis-v" @size="2x" />
+        </div>
+      </list.item>
+    </JubileeList>
+  </div>
+
+  <div local-class="settings">
+    {{#if this.isSettingsOpen}}
+      <div local-class="content">
+        SETTINGS
+      </div>
+      <div
+        local-class="overlay"
+        {{on "click" (fn (mut this.isSettingsOpen) false)}}
+      />
+      
+    {{/if}}
+  </div>
+
   <div local-class="debug">
-    <div>{{app-version versionOnly=true}}</div>
+    <div>
+      {{app-version versionOnly=true}}
+    </div>
   </div>
 </div>
