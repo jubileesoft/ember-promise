@@ -1,0 +1,7 @@
+<div
+  local-class={{if (eq @orientation "column") "root-in-column" "root-in-row"}}
+>
+  {{yield
+    (hash item=(component "jubilee-list-item" didInsert=this.itemDidInsert onClick=this.itemOnClick))
+  }}
+</div>

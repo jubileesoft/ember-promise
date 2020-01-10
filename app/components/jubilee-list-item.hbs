@@ -1,0 +1,9 @@
+<div
+  {{did-insert (fn @didInsert this)}}
+  {{on "click" (fn @onClick this.id)}}
+>
+  {{yield this.isSelected}}
+</div>
+{{#if this.isSelected}}
+{{!-- DUMMY SO THAT THE GETTER IS TRIGGERED --}}
+{{/if}}
