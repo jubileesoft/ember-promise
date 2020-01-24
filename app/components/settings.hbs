@@ -17,12 +17,12 @@
       <JubileeInput
         @placeholder="Vorname"
         @text={{this.store.firstName}}
-        @onChange={{fn (mut this.store.firstName)}}
+        @onChange={{fn this.store.setProp "firstName"}}
       />
       <JubileeInput
         @placeholder="Nachname"
         @text={{this.store.lastName}}
-        @onChange={{fn (mut this.store.lastName)}}
+        @onChange={{fn this.store.setProp "lastName"}}
       />
       <div>
         <JubileeButton

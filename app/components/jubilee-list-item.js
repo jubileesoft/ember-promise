@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { uuid } from 'uuidv4';
-import { computed } from '@ember/object';
 
 export default class JubileeListItemComponent extends Component {
   // #region Fields
@@ -25,7 +24,6 @@ export default class JubileeListItemComponent extends Component {
 
   // @computed('args.isSelected')
   get isSelected() {
-    console.log('TADA');
     if (typeof this.args.isSelected === 'undefined') {
       return this._isSelected;
     }
@@ -40,7 +38,6 @@ export default class JubileeListItemComponent extends Component {
     return this._isSelected;
   }
   set isSelected(value) {
-    console.log(value);
     this._isSelected = value;
     return value;
   }

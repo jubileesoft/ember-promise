@@ -1,44 +1,60 @@
 import Service from '@ember/service';
-
-const keys = {
-  FIRST_NAME: 'firstName',
-  LAST_NAME: 'lastName'
-};
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class StoreService extends Service {
   // #region Properties
 
-  get firstName() {
-    return window.localStorage.getItem(keys.FIRST_NAME);
-  }
-  set firstName(value) {
-    if (value == null) {
-      return value;
-    }
-    window.localStorage.setItem(keys.FIRST_NAME, value);
-    return value;
-  }
-
-  get lastName() {
-    return window.localStorage.getItem(keys.LAST_NAME);
-  }
-  set lastName(value) {
-    window.localStorage.setItem(keys.LAST_NAME, value);
-    return value;
-  }
+  @tracked firstName;
+  @tracked lastName;
 
   // #endregion Properties
 
-  // #region Methods
+  // #region Fields
 
-  clearStorage() {
-    for (let key in keys) {
-      //console.log(key);
-      this.set(keys[key], null);
-      window.localStorage.removeItem(keys[key]);
+  _keys = [];
+
+  // #endregion Fields
+
+  // #region COnstructor
+
+  constructor() {
+    super(...arguments);
+
+    const keysString = window.localStorage.getItem('keys');
+    if (!keysString) {
+      return;
     }
 
-    //window.localStorage.clearStorage();
+    const keys = keysString.split(',');
+    keys.forEach(key => {
+      this.set(key, window.localStorage.getItem(key));
+    });
+  }
+
+  // #endregion COnstructor
+
+  // #region Methods
+
+  @action
+  setProp(key, value) {
+    this.set(key, value);
+    window.localStorage.setItem(key, value);
+
+    if (this._keys.indexOf(key) !== -1) {
+      return;
+    }
+
+    this._keys.push(key);
+
+    window.localStorage.setItem('keys', this._keys.join(','));
+  }
+
+  clearStorage() {
+    this._keys.forEach(key => {
+      this.set(key, null);
+      window.localStorage.removeItem(key);
+    });
   }
 
   // #endregion Methods
