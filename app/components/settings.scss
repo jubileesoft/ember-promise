@@ -1,0 +1,53 @@
+.root {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+
+  .icons {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: end;
+
+    cursor: pointer;
+
+    .icon {
+      color: #73818f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0.5;
+    }
+  }
+
+  .content {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    background: #ffffff;
+    z-index: 100;
+
+    box-shadow: -1px 0px 4px 1px #848688;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .overlay {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background: #333333;
+    opacity: 0.4;
+  }
+}
