@@ -44,39 +44,7 @@
   }
 }
 
-.settings {
-  grid-row-start: 1;
-  grid-row-end: 6;
-  grid-column-start: 1;
-  grid-column-end: 6;
 
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr;
-
-  .content {
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 2;
-    grid-column-end: 3;
-
-    background: #ffffff;
-    z-index: 100;
-
-    box-shadow: -1px 0px 4px 1px #848688;
-
-    padding: 20px;
-  }
-
-  .overlay {
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    background: #333333;
-    opacity: 0.4;
-  }
-}
 
 .a {
   grid-row-start: 2;

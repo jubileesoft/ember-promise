@@ -66,6 +66,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@jubileesoft/ember-jubileesoft-ui": "^1.0.0",
     "uuidv4": "^6.0.0"
   }
 }

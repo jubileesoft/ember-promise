@@ -1,0 +1,40 @@
+<div local-class="root">
+  <div local-class="icons">
+    <JubileeList @orientation="column" as |list|>
+      <list.item
+        @isSelected={{this.isSettingsOpen}}
+        @isSelectedChanged={{fn (mut this.isSettingsOpen)}} as |isSelected|
+      >
+        <div local-class="icon">
+          <FaIcon @icon="ellipsis-v" @size="2x" />
+        </div>
+      </list.item>
+    </JubileeList>
+  </div>
+
+  {{#if this.isSettingsOpen}}
+    <div local-class="content">
+      <JubileeInput
+        @placeholder="Vorname"
+        @text={{this.store.firstName}}
+        @onChange={{fn (mut this.store.firstName)}}
+      />
+      <JubileeInput
+        @placeholder="Nachname"
+        @text={{this.store.lastName}}
+        @onChange={{fn (mut this.store.lastName)}}
+      />
+      <div>
+        <JubileeButton
+          @text="Lokale Daten löschen"
+          @invert={{true}}
+          {{on "click" this.clear}}
+        />
+      </div>
+    </div>
+    <div
+      local-class="overlay"
+      {{on "click" (fn (mut this.isSettingsOpen) false)}}
+    ></div>
+  {{/if}}
+</div>
